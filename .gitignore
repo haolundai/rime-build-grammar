@@ -1,2 +1,7 @@
 /.DS_Store
-/temp
+/temp# generated
+merge_*.txt
+ngram_*_frequencies.txt
+my_model.arpa
+zh-hant.gram
+*.gram
