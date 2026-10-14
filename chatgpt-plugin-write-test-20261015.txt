@@ -1,0 +1,5 @@
+ChatGPT GitHub Plugin write test
+Date: 2026-10-15 (Asia/Taipei)
+Branch: chatgpt-plugin-write-test-20261015
+Purpose: verify that a standard ChatGPT conversation can create a GitHub branch and write a file via the GitHub plugin.
+This is a harmless test file. No changes to main.
