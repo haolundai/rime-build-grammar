@@ -1,0 +1,28 @@
+name: ChatGPT Plugin Cloud Execution Test
+on:
+  push:
+    branches:
+      - chatgpt-plugin-write-test-20261015
+jobs:
+  verify-cloud-execution:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify GitHub-hosted runner and test file
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import platform
+          import sys
+
+          marker = Path("chatgpt-plugin-write-test-20261015.txt")
+          assert marker.is_file(), f"Missing test file: {marker}"
+          contents = marker.read_text(encoding="utf-8")
+          assert "ChatGPT GitHub Plugin write test" in contents
+          assert "No changes to main" in contents
+          print("CHATGPT_PLUGIN_CLOUD_TEST_PASS")
+          print("Python:", sys.version.split()[0])
+          print("Runner OS:", platform.system())
+          PY
